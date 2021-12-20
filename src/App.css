@@ -1,5 +1,9 @@
 .App {
-  text-align: center;
+  font-family: 'Open Sans', cursive;
+ display:flex;
+ margin: 0 auto;
+max-width: 700px;
+flex-direction: column;
 }
 
 .App-logo {
@@ -37,19 +41,53 @@
   }
 }
 
-.users{
-  display: flex;  
+ 
+
+.usersLists {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.usersInfo{
+.usersInfo {
   display: flex;
-  width: 300px;
-  
+  width: 150px;
   padding: 15px 0;
+  flex-direction: column;
+}
+
+.usersInfo__add{
+  width:120px;
+  height: 32px;
+  background-color: #b1cdf1;
+  color: #1877F2;
+  border: none;
+  cursor: pointer;
+}
+
+.mainNavigation{
+  display:flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.mainNavigation h1{
+  margin:0;
+}
+.mainNavigation a {
+ 
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
 li {
   list-style-type: none; /* Убираем маркеры */
- }
+}
+
+.mainNavigation a:hover{
+  transform: translateY(-7px);
+}

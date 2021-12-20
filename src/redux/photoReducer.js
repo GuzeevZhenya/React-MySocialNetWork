@@ -1,23 +1,16 @@
 const inititialState = {
-  photo: "",
-  myFavoritePhoto: [
-    {
-      id: "",
-      url: "",
-    },
-  ],
+  photo: '',
+  myFavoritePhoto:[]
 };
 
 export const photoReducer = (state = inititialState, action) => {
   switch (action.type) {
-    case "ADD_PHOTO":
-      console.log(action.value);
+    case 'ADD_PHOTO':
       return {
         ...state,
         photo: action.value,
       };
-    case "FAVORITE_PHOTO":
-        console.log(state.myFavoritePhoto)
+    case 'FAVORITE_PHOTO':
       const newPhoto = {
         id: action.value.id,
         url: action.value.value,
@@ -26,10 +19,8 @@ export const photoReducer = (state = inititialState, action) => {
         ...state,
         myFavoritePhoto: [...state.myFavoritePhoto, newPhoto],
       };
-    case "REMOVE_PHOTO":
-      const newState = state.myFavoritePhoto.filter(
-        (item) => item.id !== action.value
-      );
+    case 'REMOVE_PHOTO':
+      const newState = state.myFavoritePhoto.filter((item) => item.id !== action.value);
       return {
         ...state,
         myFavoritePhoto: newState,

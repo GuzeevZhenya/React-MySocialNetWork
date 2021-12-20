@@ -9,7 +9,7 @@ export const Friends = () => {
     state.myFrinds &&
     state.myFrinds.map((item, index) => (
       <div key={index}>
-        <img src={item.picture.medium && item.picture.medium} />
+        <img src={item.picture.medium && item.picture.medium} alt="no-photo"/>
         <li>
           {item.name.first} - {item.name.last}
         </li>

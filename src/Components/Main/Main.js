@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { usersAPI } from '../../api';
 import { photoAPI } from '../../api';
 
+
 import './main.css';
 
 export const Main = () => {
@@ -10,8 +11,9 @@ export const Main = () => {
   const userState = useSelector((state) => state.userReducer);
   const photoState = useSelector((state) => state.photoReducer);
 
-  const [showInfo, setShowInfo] = useState('photo');
-  const [activeButton, setActiveButton] = useState(true);
+  const [showInfo, setShowInfo] = useState(null);
+  const [disable, setDisabled] = useState(false);
+
 
   const findNewFriends = () => {
     usersAPI.getUsers().then((data) => dispatch({ type: 'ADD_USER', value: data }));
@@ -19,8 +21,8 @@ export const Main = () => {
   };
 
   const addFriends = (value) => {
-    dispatch({ type: 'ADD_FRINDS', value });
-    setActiveButton(false)
+    const id = Math.floor(Math.random() * 10000);
+    dispatch({ type: 'ADD_FRINDS', value: { id, value } });
   };
 
   const getRandomPhoto = () => {
@@ -41,10 +43,12 @@ export const Main = () => {
         <div className="usersInfo">
           <img src={item.picture.medium} />
           <div>
-              {item.name.first} {item.name.last}
+            {item.name.first} {item.name.last}
           </div>
         </div>
-        <button className='usersInfo__add' onClick={() => addFriends(item)}>Добавить</button>
+        <button onClick={(e) => addFriends(item)}>
+          Добавить
+        </button>
       </div>
     ));
 
@@ -63,7 +67,17 @@ export const Main = () => {
         <button onClick={() => getRandomPhoto()}>Фотки</button>
         <button onClick={() => findNewFriends()}>Друзья</button>
       </div>
-      <div>{showInfo === 'friends' ? <ul className='usersLists'>{user}</ul> : <div>{photo}</div>}</div>
+      <div>
+        {showInfo === 'friends'
+          ?
+          <div>
+              <h1>Добавить в друзья</h1>
+              <ul className="usersLists">
+                {user}
+              </ul>
+          </div>
+          : <div>{photo}</div>}
+      </div>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+// import { photoAPI } from '../../api';
+
 const inititialState = {
   photo: '',
   myFavoritePhoto:[]

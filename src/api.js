@@ -12,6 +12,5 @@ export const photoAPI = {
   getPhoto() {
     return fetch(`https://random.imagecdn.app/480/320`)
       .then((response) => response.url)
-      
   },
 };

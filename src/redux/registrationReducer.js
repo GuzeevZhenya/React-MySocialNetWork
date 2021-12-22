@@ -29,10 +29,12 @@ export const registrationReducer = (state = initialState, action) => {
 
     case 'CHECK_USERDATE':
      if (state.login === action.value.email && state.password === action.value.password) {
-    return {
-      ...state,
-      exces:true
-    }
+      return {
+        ...state,
+        exces:true
+      } 
+     } else {
+       alert('Неправильно')
   }
      
 

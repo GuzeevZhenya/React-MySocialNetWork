@@ -30,6 +30,7 @@
   background: white;
   box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
   transition: .3s;
+  cursor: pointer;
 }
 
 .main-block__navigation button:hover{
@@ -71,6 +72,10 @@
 
 .like:focus::before{
 	animation: effect_dylan .8s ease-out;
+}
+
+.disabled-button{
+  pointer-events: none;
 }
 
 

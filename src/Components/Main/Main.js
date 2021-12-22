@@ -12,7 +12,6 @@ export const Main = () => {
   const photoState = useSelector((state) => state.photoReducer);
 
   const [showInfo, setShowInfo] = useState(null);
-  const [disable, setDisabled] = useState(false);
 
 
   const findNewFriends = () => {
@@ -20,7 +19,9 @@ export const Main = () => {
     setShowInfo('friends');
   };
 
-  const addFriends = (value) => {
+  const addFriends = (value, e) => {
+    e.textContent = 'В друзьях';
+    e.classList.add('disabled-button');
     const id = Math.floor(Math.random() * 10000);
     dispatch({ type: 'ADD_FRINDS', value: { id, value } });
   };
@@ -46,7 +47,7 @@ export const Main = () => {
             {item.name.first} {item.name.last}
           </div>
         </div>
-        <button onClick={(e) => addFriends(item)}>
+        <button className = "usersInfo__add" onClick={(e) => addFriends(item,e.target)}>
           Добавить
         </button>
       </div>

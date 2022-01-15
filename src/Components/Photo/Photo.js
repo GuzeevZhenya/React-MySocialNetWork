@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import './photo.css'
+import {REMOVE_PHOTO} from "../../redux/photoReducer";
 
 export function Photo() {
   const dispatch = useDispatch();
@@ -8,14 +9,14 @@ export function Photo() {
 
 
   const removePhoto = (id) => {
-      dispatch({type:"REMOVE_PHOTO",value:id})
+      dispatch({type:REMOVE_PHOTO,value:id})
   };
 
   const myPhoto =
    state.myFavoritePhoto !== null ? 
     state.myFavoritePhoto.map((item, index) => (
       <div className="photo" key={item.id}>
-        <img src={item.url} />
+        <img src={item.url} alt="favoritePhoto"/>
         <button className="remove-photo" onClick={() => removePhoto(item.id)}></button>
       </div>
     )):null;

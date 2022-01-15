@@ -1,26 +1,35 @@
+import {getId} from "../helper/helper";
+
 const initialState = {
-  findingFriens: [],
-  myFrinds: [],
+  findingFriends: [],
+  myFriends: [],
 };
+
+export const REMOVE_FRIEND = "REMOVE_FRIEND";
+export const ADD_USER = "ADD_USER";
+export const ADD_FRIENDS = "ADD_FRIENDS";
 
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_USER":
+    case ADD_USER:
+      const dataWithId = action.value.results.map(user => {
+       return {...user, ...user.id, id: user.id.value ? user.id.value : user.id.value = getId()}
+      })
+      console.log(dataWithId);
       return {
         ...state,
-        findingFriens: action.value,
+        findingFriends: dataWithId,
       };
-    case "REMOVE_FRIEND":
-      const newState = state.myFrinds.filter((item) => item.id !== action.value);
+    case REMOVE_FRIEND:
+      const newState = state.myFriends.filter((item) => item.id !== action.value);
       return {
         ...state,
-        myFrinds: newState
+        myFriends: newState
       }
-    case "ADD_FRINDS":
-      //   console.log(state.myFrinds);
+    case ADD_FRIENDS:
       return {
         ...state,
-        myFrinds: [...state.myFrinds, action.value.value],
+        myFriends: [...state.myFriends, action.value.value],
       };
     default:
       return state;

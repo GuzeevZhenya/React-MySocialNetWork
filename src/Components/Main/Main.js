@@ -40,7 +40,7 @@ export const Main = () => {
   const user =
     userState.findingFriens.results &&
     userState.findingFriens.results.map((item, index) => (
-      <div className="users" key={index}>
+      <div className="users" key={item.id.value}>
         <div className="usersInfo">
           <img src={item.picture.medium} />
           <div>

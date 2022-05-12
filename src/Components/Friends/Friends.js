@@ -13,7 +13,7 @@ export const Friends = () => {
   const myFrinds =
     state.myFrinds &&
     state.myFrinds.map((item, index) => (
-      <div className="users" key={index}>
+      <div className="users" key={item.id}>
         <div className="usersInfo">
           <img src={item.picture.medium} />
           <div>

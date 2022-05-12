@@ -1,11 +1,11 @@
-import './App.css';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
-import { Main } from './Components/Main/Main';
-import { Friends } from './Components/Friends/Friends';
-import { Photo } from './Components/Photo/Photo';
-import { Registration } from './Components/Registration/Registration';
-import { useDate } from './Components/Clock/Clock';
-import { useSelector, useDispatch } from 'react-redux';
+import "./App.css";
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { Main } from "./Components/Main/Main";
+import { Friends } from "./Components/Friends/Friends";
+import { Photo } from "./Components/Photo/Photo";
+import { Registration } from "./Components/Registration/Registration";
+import { useDate } from "./Components/Clock/Clock";
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
   const { date, time } = useDate();
@@ -38,7 +38,7 @@ function App() {
         <div>
           {date}: {time}
         </div>
-       {registrationReducer.exces ? <div>{navigation}</div> : <Registration />}
+        {registrationReducer.exces ? <div>{navigation}</div> : <Registration />}
       </div>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 const initialState = {
-  login: 'shyst',
-  password: '123',
+  login: '',
+  password: '',
   exces:false
 };
 

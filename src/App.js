@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./App.css";
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import { Main } from "./Components/Main/Main";
@@ -6,10 +7,19 @@ import { Photo } from "./Components/Photo/Photo";
 import { Registration } from "./Components/Registration/Registration";
 import { useDate } from "./Components/Clock/Clock";
 import { useSelector, useDispatch } from "react-redux";
+=======
+import './App.css';
+import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { Main } from './Components/Main/Main';
+import { Friends } from './Components/Friends/Friends';
+import { Photo } from './Components/Photo/Photo';
+import { Registration } from './Components/Registration/Registration';
+import { useDate } from './Components/Clock/Clock';
+import { useSelector} from 'react-redux';
+>>>>>>> dbf762d10fcbef68186df124271e81211660626a
 
 function App() {
   const { date, time } = useDate();
-  const dispatch = useDispatch();
   const registrationReducer = useSelector((state) => state.registrationReducer);
 
   const navigation = (
@@ -26,7 +36,7 @@ function App() {
           Photo
         </NavLink>
       </nav>
-      <Route path="/main" exact component={() => <Main />}></Route>
+      <Route path="/main" exact component={() => <Main/>}></Route>
       <Route path="/friends" exact component={() => <Friends />}></Route>
       <Route path="/photo" exact component={() => <Photo />}></Route>
     </div>

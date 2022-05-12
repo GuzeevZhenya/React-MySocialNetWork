@@ -1,0 +1,1 @@
+export const getId = () => Math.floor(Math.random() * 10000);

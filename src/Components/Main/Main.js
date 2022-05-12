@@ -2,7 +2,9 @@ import { React, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { usersAPI } from '../../api';
 import { photoAPI } from '../../api';
-
+import { FAVORITE_PHOTO, ADD_PHOTO } from '../../redux/photoReducer';
+import { ADD_FRIENDS, ADD_USER } from '../../redux/userReducer';
+import {getId} from "../../helper/helper";
 
 import './main.css';
 
@@ -13,36 +15,37 @@ export const Main = () => {
 
   const [showInfo, setShowInfo] = useState(null);
 
-
   const findNewFriends = () => {
-    usersAPI.getUsers().then((data) => dispatch({ type: 'ADD_USER', value: data }));
+    usersAPI.getUsers().then((data) => dispatch({ type: ADD_USER, value: data }));
     setShowInfo('friends');
   };
 
   const addFriends = (value, e) => {
     e.textContent = 'В друзьях';
     e.classList.add('disabled-button');
-    const id = Math.floor(Math.random() * 10000);
-    dispatch({ type: 'ADD_FRINDS', value: { id, value } });
+    const id = getId();
+    dispatch({ type: ADD_FRIENDS, value: { id, value } });
   };
 
   const getRandomPhoto = () => {
-    photoAPI.getPhoto().then((data) => dispatch({ type: 'ADD_PHOTO', value: data }));
+    photoAPI.getPhoto().then((data) => dispatch({ type: ADD_PHOTO, value: data }));
     setShowInfo('photo');
   };
 
   const addPhotoCollection = (value) => {
-    const id = Math.floor(Math.random() * 10000);
-    dispatch({ type: 'FAVORITE_PHOTO', value: { id, value } });
-    photoAPI.getPhoto().then((data) => dispatch({ type: 'ADD_PHOTO', value: data }));
+    const id = getId();
+    dispatch({ type: FAVORITE_PHOTO, value: { id, value } });
+    photoAPI.getPhoto().then((data) => dispatch({ type: ADD_PHOTO, value: data }));
   };
 
   const user =
-    userState.findingFriens.results &&
-    userState.findingFriens.results.map((item, index) => (
-      <div className="users" key={item.id.value}>
+    userState.findingFriends &&
+    userState.findingFriends.map(item => {
+      console.log(item);
+      return (
+      <div className="users" key={item.id}>
         <div className="usersInfo">
-          <img src={item.picture.medium} />
+          <img src={item.picture.medium} alt="randomPicture"/>
           <div>
             {item.name.first} {item.name.last}
           </div>
@@ -51,11 +54,13 @@ export const Main = () => {
           Добавить
         </button>
       </div>
-    ));
+    )});
 
   const photo = (
     <div className="main-block--photoBlock">
-      <img src={photoState.photo} />
+      {photoState.photo &&
+        <img src={photoState.photo} alt="randomPhoto" />
+      }
       {photoState.photo && (
         <button className="like" onClick={() => addPhotoCollection(photoState.photo)}></button>
       )}

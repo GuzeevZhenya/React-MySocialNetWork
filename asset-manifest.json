@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/React-MySocialNetWork/static/css/main.84955408.chunk.css",
+    "main.js": "/React-MySocialNetWork/static/js/main.5e97ee52.chunk.js",
+    "main.js.map": "/React-MySocialNetWork/static/js/main.5e97ee52.chunk.js.map",
+    "runtime-main.js": "/React-MySocialNetWork/static/js/runtime-main.55b45f2a.js",
+    "runtime-main.js.map": "/React-MySocialNetWork/static/js/runtime-main.55b45f2a.js.map",
+    "static/js/2.b10024f6.chunk.js": "/React-MySocialNetWork/static/js/2.b10024f6.chunk.js",
+    "static/js/2.b10024f6.chunk.js.map": "/React-MySocialNetWork/static/js/2.b10024f6.chunk.js.map",
+    "index.html": "/React-MySocialNetWork/index.html",
+    "static/css/main.84955408.chunk.css.map": "/React-MySocialNetWork/static/css/main.84955408.chunk.css.map",
+    "static/js/2.b10024f6.chunk.js.LICENSE.txt": "/React-MySocialNetWork/static/js/2.b10024f6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.55b45f2a.js",
+    "static/js/2.b10024f6.chunk.js",
+    "static/css/main.84955408.chunk.css",
+    "static/js/main.5e97ee52.chunk.js"
+  ]
+}
